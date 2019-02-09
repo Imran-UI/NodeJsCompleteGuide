@@ -1,0 +1,16 @@
+{
+  "name": "complete_node_js",
+  "version": "1.0.0",
+  "description": "Learning complete node js guide",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+    
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^1.18.10"
+  }
+}
