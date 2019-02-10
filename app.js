@@ -14,8 +14,11 @@ const shopRoutes = require("./router/shop");
 // server.listen(3000);
 
 const app = express();
-//adding middle ware 
 
+app.set('views' , 'views');
+app.set('view engine', 'ejs');
+
+//adding middle ware 
 app.use(bodyParser.urlencoded({extended: false}));
 
 app.use(express.static(path.join(__dirname, 'public')));
@@ -25,7 +28,7 @@ app.use('/admin', adminRoutes.router);
 
 app.use((req,res,next)=> {
     res.status(404);
-    res.sendFile(path.join(__dirname, './', 'views', '404.html'));
+    res.render('404', {'pageTitle' : '404 Page Not Found :('});
 })
 
 app.listen(3000);
