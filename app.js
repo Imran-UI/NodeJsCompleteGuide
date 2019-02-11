@@ -4,6 +4,7 @@ const path = require('path');
 
 const adminRoutes = require('./router/admin');
 const shopRoutes = require("./router/shop");
+const errorController = require('./controllers/error.controller');
 
 // node js server fire up test
 
@@ -26,10 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(shopRoutes);
 app.use('/admin', adminRoutes.router);
 
-app.use((req,res,next)=> {
-    res.status(404);
-    res.render('404', {'pageTitle' : '404 Page Not Found :('});
-})
+app.use(errorController.get404);
 
 app.listen(3000);
 
